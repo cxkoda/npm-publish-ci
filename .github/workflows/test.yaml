@@ -47,4 +47,4 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: rm -rf node_modules && yarn install --frozen-lockfile
 
-      - run: npm lint
+      - run: npm run lint
