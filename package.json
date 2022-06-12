@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": ""
+    "lint": "exit 1"
   },
   "repository": {
     "type": "git",
