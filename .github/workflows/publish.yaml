@@ -1,0 +1,31 @@
+name: Publish NPM package
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: ./node_modules
+          key: modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Install yarn dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: rm -rf node_modules && yarn install --frozen-lockfile
+
+      - run: Publish NPM
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
