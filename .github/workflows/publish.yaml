@@ -27,6 +27,6 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: rm -rf node_modules && yarn install --frozen-lockfile
 
-      - run: npm publish --access public || echo "Skipping..."
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
