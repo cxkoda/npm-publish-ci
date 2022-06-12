@@ -1,15 +1,11 @@
-name: Publish NPM package
+name: Test
 
 on:
-  workflow_run:
-    workflows: ["Run Tests"]
-    branches: [main]
-    types:
-      - completed
+  push:
+  workflow_dispatch:
 
 jobs:
-  deploy:
-    name: Publish to NPM
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -29,6 +25,4 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: rm -rf node_modules && yarn install --frozen-lockfile
 
-      - run: npm publish --access public || echo "Skipping..."
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm test
