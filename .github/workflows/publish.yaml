@@ -2,8 +2,8 @@ name: Publish NPM package
 
 on:
   push:
-    paths:
-      - "package.json"
+    tags:
+      - v*
 
 jobs:
   deploy:
