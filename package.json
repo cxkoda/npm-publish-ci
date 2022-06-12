@@ -11,7 +11,7 @@
     "url": "git+https://github.com/cxkoda/npm-publish-ci.git"
   },
   "author": "asdasdcvbncvbn",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/cxkoda/npm-publish-ci/issues"
   },
