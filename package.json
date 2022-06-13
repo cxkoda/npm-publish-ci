@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/cxkoda/npm-publish-ci/issues"
   },
-  "homepage": "https://github.com/cxkoda/npm-publish-ci#readme"
+  "homepage": "https://github.com/cxkoda/npm-publish-ci#readme",
+  "dependencies": {
+    "@divergencetech/ethier": "^0.31.0"
+  }
 }
